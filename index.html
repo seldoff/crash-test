@@ -67,9 +67,22 @@
                 alert('Done')
             }
         }
+
+        function oom() {
+            document.arr = [];
+            let i = 0;
+            while (true) {
+                const arr = new Array(100_000_000);
+                arr.fill(42);
+                document.arr.push(arr);
+                i++;
+                document.title = `${i*100}MB allocated.`;
+            }
+        }
     </script>
 </head>
 <body>
-<button onclick="pi()">Click me</button>
+<button onclick="pi()">Long operation</button>
+<button onclick="oom()">Out of memory</button>
 </body>
 </html>
